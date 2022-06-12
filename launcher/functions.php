@@ -21,6 +21,18 @@ function launcher_enqueue_assets() {
     wp_enqueue_script("bootstrap-js", get_theme_file_uri("/assets/js/bootstrap.min.js"), ["jquery"], null, true);
     wp_enqueue_script("waypoint-jquery-js", get_theme_file_uri("/assets/js/jquery.waypoints.min.js"), ["jquery"], null, true);
     wp_enqueue_script("countdown-js", get_theme_file_uri("/assets/js/simplyCountdown.js"), ["jquery"], null, true);
+
+    $launcher_year = get_post_meta(get_the_ID(), "year", true);
+    $launcher_month = get_post_meta(get_the_ID(), "month", true);
+    $launcher_day = get_post_meta(get_the_ID(), "day", true);
+
+    wp_localize_script("main-js", "datedata",
+        array(
+            "year"  => $launcher_year,
+            "month" => $launcher_month,
+            "day"   => $launcher_day,
+
+        ));
 }
 
 add_action('wp_enqueue_scripts', 'launcher_enqueue_assets');

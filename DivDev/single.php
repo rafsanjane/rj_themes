@@ -1,17 +1,17 @@
-<?php get_header(); ?>
+<?php get_header();?>
 
 
 
-<?php get_template_part("left-sidebar"); ?>
+<?php get_template_part("left-sidebar");?>
 
 
-<div class="main-wrapper" <?php body_class(); ?>>
+<div class="main-wrapper" <?php body_class();?>>
 
 	<?php
-	if (function_exists('wp_body_open')) {
-		wp_body_open();
-	}
-	?>
+if (function_exists('wp_body_open')) {
+    wp_body_open();
+}
+?>
 
 
 	<div class="container-fluid">
@@ -24,14 +24,14 @@
 
 
 				<article class="blog-post px-3 py-5 p-md-5 col-md-12">
-					<div class="container single-col-max-width" <?php post_class(); ?>>
+					<div class="container single-col-max-width" <?php post_class();?>>
 						<?php
-						while (have_posts()) {
-							the_post();
-						?>
+while (have_posts()) {
+    the_post();
+    ?>
 							<header class="blog-post-header">
 								<h2 class="title mb-2">
-									<?php the_title(); ?>
+									<?php the_title();?>
 								</h2>
 								<div class="meta mb-3">
 									<span class="author">
@@ -41,7 +41,7 @@
 										<?php echo get_the_date(); ?>
 									</span>
 									<span class="tag">
-										<?php the_tags(); ?>
+										<?php the_tags();?>
 
 
 									</span>
@@ -58,33 +58,32 @@
 								<figure class="blog-banner">
 									<?php
 
+    if (has_post_thumbnail()) {
+        $the_thumbnail = get_the_post_thumbnail_url();
 
+        printf('<a href="%s" data-featherlight="image">', $the_thumbnail);
 
+        the_post_thumbnail("large", array("class" => "img-fluid"));
 
-									if (has_post_thumbnail()) {
-										$the_thumbnail = get_the_post_thumbnail_url();
+        echo '</a><figcaption class="mt-2 text-center image-caption">Image Credit: <a class="theme-link" href="https://alfurqanitfirm.com" target="_blank">alfurqanitfirm.com (Cock)</a></figcaption>';
+    }
 
-										printf('<a href="%s" data-featherlight="image">', $the_thumbnail);
-
-										the_post_thumbnail("large", array("class" => "img-fluid"));
-
-										echo '</a><figcaption class="mt-2 text-center image-caption">Image Credit: <a class="theme-link" href="https://alfurqanitfirm.com" target="_blank">alfurqanitfirm.com (Cock)</a></figcaption>';
-									}
-
-									?>
+    ?>
 								</figure>
 								<div class="intro">
 									<?php
-									the_content();
-									?>
+the_content();
+
+    wp_link_pages();
+    ?>
 								</div>
 							</div>
-						<?php } ?>
+						<?php }?>
 
 						<nav class="blog-nav nav nav-justified my-5 col-md-12">
 
-							<span class=" nav-next-post rounded next-post post-prev col-md-6"><?php previous_post_link('%link'); ?></span>
-							<span class=" nav-next-post rounded next-post col-md-6"><?php next_post_link('%link'); ?></span>
+							<span class=" nav-next-post rounded next-post post-prev col-md-6"><?php previous_post_link('%link');?></span>
+							<span class=" nav-next-post rounded next-post col-md-6"><?php next_post_link('%link');?></span>
 
 
 							<!-- class="nav-link-next nav-item nav-link rounded"' -->
@@ -102,25 +101,25 @@
 				<div id="comment-sections" class="container">
 					<div class="row comment-section">
 
-						<?php if (comments_open()) : ?>
+						<?php if (comments_open()): ?>
 
 							<div class="col-md-12 offset-md-1 ">
 
-								<?php comments_template() ?>
+								<?php comments_template()?>
 
 							</div>
 
-						<?php endif; ?>
+						<?php endif;?>
 
 					</div>
 				</div>
 			</div>
 			<div class="col-md-4 sidebar-right">
 				<?php
-				if (is_active_sidebar("sidebar-1")) {
-					dynamic_sidebar("sidebar-1");
-				}
-				?>
+if (is_active_sidebar("sidebar-1")) {
+    dynamic_sidebar("sidebar-1");
+}
+?>
 
 			</div>
 		</div>
@@ -149,4 +148,4 @@
 	</section>
 	<!--//promo-section-end-->
 
-	<?php get_footer(); ?>
+	<?php get_footer();?>
