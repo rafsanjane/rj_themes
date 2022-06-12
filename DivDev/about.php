@@ -1,29 +1,29 @@
 <?php
 
 /*
-* Template Name: About Page Template
-*/
+ * Template Name: About Page Template
+ */
 
-get_header(); ?>
+get_header();?>
 
-<?php get_template_part("left-sidebar"); ?>
+<?php get_template_part("left-sidebar");?>
 
 
 <div class="main-wrapper">
     <?php
-    if (function_exists('wp_body_open')) {
-        wp_body_open();
-    }
-    ?>
+if (function_exists('wp_body_open')) {
+    wp_body_open();
+}
+?>
     <section class="cta-section theme-bg-light py-5">
         <div class="container text-center single-col-max-width">
-            <h2 class="heading"><?php bloginfo("title") ?></h2>
-            <h4 class="intro"><?php bloginfo("description") ?></h4>
+            <h2 class="heading"><?php bloginfo("title")?></h2>
+            <h4 class="intro"><?php bloginfo("description")?></h4>
             <div class="intro">Welcome to my blog. Subscribe and get my latest blog post in your inbox.</div>
             <!--//single-form-max-width-->
             <h3 class="title mb-1">
-                <a class="text-link" href="<?php the_permalink(); ?>">
-                    <?php the_title(); ?>
+                <a class="text-link" href="<?php the_permalink();?>">
+                    <?php the_title();?>
 
                 </a>
             </h3>
@@ -101,4 +101,4 @@ get_header(); ?>
 
 
 
-    <?php get_footer(); ?>
+    <?php get_footer();?>
