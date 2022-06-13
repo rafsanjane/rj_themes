@@ -4,26 +4,26 @@
  * Template Name: About Page Template
  */
 
-get_header();?>
+get_header(); ?>
 
-<?php get_template_part("left-sidebar");?>
+<?php get_template_part("left-sidebar"); ?>
 
 
 <div class="main-wrapper">
     <?php
-if (function_exists('wp_body_open')) {
-    wp_body_open();
-}
-?>
+    if (function_exists('wp_body_open')) {
+        wp_body_open();
+    }
+    ?>
     <section class="cta-section theme-bg-light py-5">
         <div class="container text-center single-col-max-width">
-            <h2 class="heading"><?php bloginfo("title")?></h2>
-            <h4 class="intro"><?php bloginfo("description")?></h4>
+            <h2 class="heading"><?php bloginfo("title") ?></h2>
+            <h4 class="intro"><?php bloginfo("description") ?></h4>
             <div class="intro">Welcome to my blog. Subscribe and get my latest blog post in your inbox.</div>
             <!--//single-form-max-width-->
             <h3 class="title mb-1">
-                <a class="text-link" href="<?php the_permalink();?>">
-                    <?php the_title();?>
+                <a class="text-link" href="<?php the_permalink(); ?>">
+                    <?php the_title(); ?>
 
                 </a>
             </h3>
@@ -53,11 +53,7 @@ if (function_exists('wp_body_open')) {
                 nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus,
                 tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum.
                 Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante
-                tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet
-                orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales
-                sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc, quis gravida
-                magna mi a libero. Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis
-                sed, nonummy id, metus.</p>
+                tincidunt tempus.</p>
             <h5 class="mt-5">My Skills and Experiences</h5>
             <p>Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu,
                 consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus.
@@ -101,4 +97,4 @@ if (function_exists('wp_body_open')) {
 
 
 
-    <?php get_footer();?>
+    <?php get_footer(); ?>
