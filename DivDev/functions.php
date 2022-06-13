@@ -23,8 +23,8 @@ function divdev_bootstrapping()
     add_theme_support('custom-background');
 
     $divdev_custom_logo_defaults = array(
-        'width'                => 100,
-        'height'               => 100,
+        'width'                => '100',
+        'height'               => '100',
         'flex-height'          => true,
         'flex-width'           => true,
         'header-text'          => array('site-title', 'site-description'),
