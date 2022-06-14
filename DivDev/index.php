@@ -47,7 +47,6 @@
 			?>
 			<div class="container">
 				<div class="row">
-
 					<div class="col-md-12 blog-nav pagination-link">
 						<div class="nav-item nav-link rounded">
 							<?php the_posts_pagination(array(

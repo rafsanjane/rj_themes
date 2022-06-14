@@ -12466,7 +12466,7 @@ a.text-link:hover {
 }
 
 .single-col-max-width {
-    max-width: 820px
+    max-width: 920px
 }
 
 .single-form-max-width {
@@ -12658,7 +12658,7 @@ a.text-link:hover {
 }
 
 .main-wrapper .container {
-    max-width: 820px
+    max-width: 920px
 }
 
 
@@ -12968,12 +12968,22 @@ a.text-link:hover {
     .blog-list .post-thumb {
         max-width: 100%
     }
+
+    .attachment-thumbnail {
+        max-width: 100%
+    }
+
 }
 
 @media (min-width: 1200px) {
     .blog-list .post-thumb {
         max-width: 150px
     }
+
+    .attachment-thumbnail {
+        max-width: 150px
+    }
+
 }
 
 @media (max-width: 991.98px) {
@@ -13039,7 +13049,25 @@ span.dashicons {
     color: #ccc;
 }
 
-.attachment-thumbnail {
-    width: 150px;
-    height: 150px;
+
+/* Author Image Section Design */
+
+
+.authorsection {
+    border: 1px solid #ccc;
+    padding: 26px;
+}
+
+.authorimage img {
+    border-radius: 46px;
+}
+
+
+/* footer widgets */
+
+
+
+
+footer .col-md-6 {
+    margin-top: 16px;
 }

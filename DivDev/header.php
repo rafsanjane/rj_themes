@@ -12,8 +12,8 @@
     <meta name="author" content="Xiaoying Riley at 3rd Wave Media">
     <link rel="shortcut icon" href="favicon.ico">
 
-    <?php wp_head();?>
+    <?php wp_head(); ?>
 
 </head>
 
-<body <?php body_class();?>>
+<body <?php body_class(); ?>>

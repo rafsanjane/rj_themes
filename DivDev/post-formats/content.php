@@ -5,12 +5,13 @@
                 <a class="text-link" href="<?php the_permalink(); ?>">
                     <?php
                     if (has_post_thumbnail()) {
-                        the_post_thumbnail("thumbnail");
+                        the_post_thumbnail('thumbnail', array('class' => 'img-fluid'));
                     } else {
-                        echo '<img class="img-fluid post-thumb " src="assets/images/blog/blog-post-thumb-1.jpg" alt="image">';
+                        echo '<img class="img-fluid post-thumb" src="' . get_theme_file_uri("/assets/images/blog/chicken-" . rand(1, 10) . ".jpg") . '" alt="image">';
                     }
                     ?>
                 </a>
+
 
             </div>
             <div class="col">
