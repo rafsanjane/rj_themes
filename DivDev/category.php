@@ -12,34 +12,16 @@
 
     <section class="cta-section headerimage theme-bg-light py-5">
         <div class="container text-center single-col-max-width">
+
+
             <h2 class="heading"><?php bloginfo("title") ?></h2>
+            <div class="intro">Welcome to my blog. Subscribe and get my latest blog post in your inbox.</div>
             <div class="single-form-max-width pt-3 mx-auto">
-                <div class="authorsection">
-                    <div class="row">
-                        <div class="col-md-2 authorimage">
-                            <?php
-                            echo  '<img alt="" src="http://localhost/wp_dev/wp-content/themes/DivDev/assets/images/profile.png" srcset="http://0.gravatar.com/avatar/38503640a6b7b9e9a578279f9941b328?s=192&amp;d=mm&amp;r=g 2x" class="avatar2 avatar-96 photo" height="96" width="96" loading="lazy">';
-                            // echo  get_avatar(get_the_author_meta("id"));
-                            ?>
+                <h5>
+                    <?php single_cat_title();  ?> Related Post
+                </h5>
 
-                        </div>
-                        <div class="col-md-10">
-                            <h4>
-                                <?php
-                                echo get_the_author_meta("display_name");
-                                ?>
-                            </h4>
-
-                            <p>
-                                <?php
-                                echo get_the_author_meta("description");
-                                ?>
-
-                            </p>
-
-                        </div>
-                    </div>
-                </div>
+                <!--//signup-form-->
             </div>
             <!--//single-form-max-width-->
         </div>

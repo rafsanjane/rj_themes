@@ -1,12 +1,11 @@
 <header class="header text-center">
 	<h1 class="blog-name pt-lg-4 mb-0">
 		<a class="no-text-decoration" href="<?php echo site_url(); ?>">
-		<?php
-if (current_theme_supports("custom-logo")) {
-    the_custom_logo();
-
-}
-?>
+			<?php
+			if (current_theme_supports("custom-logo")) {
+				the_custom_logo();
+			}
+			?>
 		</a>
 	</h1>
 
@@ -50,22 +49,22 @@ if (current_theme_supports("custom-logo")) {
 			</ul> -->
 			<?php
 
-$argu = ['home ', 'bookmark ', 'user ', 'contact'];
-$arguloop = '';
-foreach ($argu as $value) {
-    $arguloop .= $value;
-}
+			$argu = ['home ', 'bookmark ', 'user ', 'contact'];
+			$arguloop = '';
+			foreach ($argu as $value) {
+				$arguloop .= $value;
+			}
 
-wp_nav_menu(
-    array(
-        'theme_location' => 'header-menu',
-        'container'      => 'ul',
-        'menu_id'        => '',
-        'menu_class'     => 'navbar-nav flex-column text-start',
-        'link_before'    => '<i class="fas fa-' . $arguloop . ' fa-fw me-2"></i>',
+			wp_nav_menu(
+				array(
+					'theme_location' => 'header-menu',
+					'container'      => 'ul',
+					'menu_id'        => '',
+					'menu_class'     => 'navbar-nav flex-column text-start',
+					'link_before'    => '<i class="fas fa-' . $arguloop . ' fa-fw me-2"></i>',
 
-    )
-);?>
+				)
+			); ?>
 
 
 

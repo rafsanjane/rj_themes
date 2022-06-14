@@ -14,6 +14,8 @@
 		<div class="container text-center single-col-max-width">
 
 
+
+			</h2>
 			<h2 class="heading"><?php bloginfo("title") ?></h2>
 			<h4 class="intro"><?php bloginfo("description") ?></h4>
 			<div class="intro">Welcome to my blog. Subscribe and get my latest blog post in your inbox.</div>

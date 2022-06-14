@@ -12658,7 +12658,7 @@ a.text-link:hover {
 }
 
 .main-wrapper .container {
-    max-width: 920px
+    max-width: 1020px
 }
 
 
@@ -12683,6 +12683,23 @@ a.text-link:hover {
 .footer {
     color: rgba(255, 255, 255, 0.7)
 }
+
+.vertically-align {
+    position: relative;
+}
+
+.vertically-align-middle {
+
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 25%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+
+}
+
+
 
 .footer a {
     color: #fff
@@ -13070,4 +13087,19 @@ span.dashicons {
 
 footer .col-md-6 {
     margin-top: 16px;
+}
+
+
+/* Archive section design */
+
+.archive-date {
+    color: #209abf;
+
+}
+
+/* Tag section design */
+
+.tag-css {
+    color: #209abf;
+    text-transform: capitalize;
 }

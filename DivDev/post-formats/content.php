@@ -11,8 +11,6 @@
                     }
                     ?>
                 </a>
-
-
             </div>
             <div class="col">
                 <h3 class="title mb-1">
@@ -22,18 +20,30 @@
                 </h3>
                 <div class="meta mb-1">
                     <span class="author">
-                        <?php echo get_the_author_link(); ?>
+                        <?php the_author_posts_link(); ?>
                     </span>
                     <span class="date">
-                        <?php echo get_the_date(); ?>
+                        <a href="<?php the_date("Y/m/d"); ?>"><?php echo get_the_date(); ?></a>
                     </span>
-                    <span class="tag">
-                        <?php the_tags(); ?>
-                    </span>
+                    <?php
+                    if (is_tag()) {
+                    ?>
+                        <span class="tag">
+                            <?php the_tags(); ?>
+                        </span>
+                    <?php
+                    }
+                    ?>
                     <span class="comment">
                         <a class="text-link" href="#comment-sections">
+                            <?php
 
-                            <?php echo get_comments_number() . " comments"; ?>
+                            if (get_comments_number() >= 2) {
+                                echo get_comments_number() . " comments";
+                            } else {
+                                echo get_comments_number() . " comment";
+                            }
+                            ?>
                         </a>
                     </span>
 
