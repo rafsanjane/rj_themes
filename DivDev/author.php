@@ -76,7 +76,9 @@
                                 </h3>
                                 <div class="meta mb-1">
                                     <span class="author">
-                                        <?php echo get_the_author_link(); ?>
+                                        <?php
+                                        echo get_the_author_link();
+                                        ?>
                                     </span>
                                     <span class="date">
                                         <?php echo get_the_date(); ?>

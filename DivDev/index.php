@@ -13,8 +13,6 @@
 	<section class="cta-section headerimage theme-bg-light py-5">
 		<div class="container text-center single-col-max-width">
 
-
-
 			</h2>
 			<h2 class="heading"><?php bloginfo("title") ?></h2>
 			<h4 class="intro"><?php bloginfo("description") ?></h4>
