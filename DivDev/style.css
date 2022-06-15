@@ -371,7 +371,7 @@ pre code {
 code {
     font-size: .875em;
     color: #d63384;
-    word-wrap: break-word
+    wrap word-: break-word
 }
 
 a>code {
@@ -8643,6 +8643,10 @@ fieldset:disabled .btn {
     text-align: center !important
 }
 
+.text-left {
+    text-align: left !important
+}
+
 .text-decoration-none {
     text-decoration: none !important
 }
@@ -13102,4 +13106,71 @@ footer .col-md-6 {
 .tag-css {
     color: #209abf;
     text-transform: capitalize;
+}
+
+/* Team Section */
+
+.team-caontainer img {
+    width: 300px;
+    height: 250px;
+}
+
+.left-float {
+    float: left;
+    padding: 0px 5px;
+}
+
+
+/* Testimonial Section */
+
+.testimonial-section {
+    position: relative;
+}
+
+.testimonials img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+}
+
+
+
+.testimonial-section .tns-nav {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 15;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: center;
+    justify-content: center;
+    padding-left: 0;
+    margin-right: 15%;
+    margin-left: 15%;
+    list-style: none;
+
+}
+
+.tns-nav {
+    bottom: 15px !important;
+}
+
+.testimonial-section .tns-nav>[aria-controls] {
+    width: 9px;
+    height: 9px;
+    padding: 0;
+    margin: 0 5px;
+    border-radius: 50%;
+    background: #ddd;
+    border: 0;
+}
+
+.testimonial-section .tns-nav>.tns-nav-active {
+    background: #999;
+}
+
+footer .justify-content-around .row {
+    margin-right: 0px;
+    margin-left: 0px;
 }

@@ -12,8 +12,6 @@
 
 	<section class="cta-section headerimage theme-bg-light py-5">
 		<div class="container text-center single-col-max-width">
-
-			</h2>
 			<h2 class="heading"><?php bloginfo("title") ?></h2>
 			<h4 class="intro"><?php bloginfo("description") ?></h4>
 			<div class="intro">Welcome to my blog. Subscribe and get my latest blog post in your inbox.</div>
@@ -33,6 +31,32 @@
 		</div>
 		<!--//container-->
 	</section>
+	<?php if (is_front_page()) {  ?>
+
+		<section class="cta-section headerimage theme-bg-light py-5">
+			<div class="container text-center ">
+				<h2 class="heading"><?php echo "Recent Posts"; ?></h2>
+				<div class=" pt-3 mx-auto card">
+					<div class="slider-images ">
+						<?php
+						while (have_posts()) {
+							the_post();
+
+							get_template_part("post-formats/content-slider", get_post_format());
+						}
+
+						?>
+						?>
+					</div>
+					<!--//signup-form-->
+				</div>
+				<!--//single-form-max-width-->
+			</div>
+			<!--//container-->
+		</section>
+	<?php }  ?>
+
+
 
 	<section class="blog-list px-3 py-5 p-md-5">
 
@@ -67,6 +91,14 @@
 
 	<!------Post Start From here----->
 
+	<hr>
 
+	<?php
+	if (is_front_page()) {
+
+		get_template_part("/page-templates/testimonial");
+	}
+	?>
+	<hr>
 
 	<?php get_footer(); ?>

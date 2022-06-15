@@ -1,5 +1,13 @@
 <?php
 
+
+if (class_exists('Attachments')) {
+    require_once "lib/attachments.php";
+}
+
+
+
+
 // Essential future adding
 
 if (site_url() == "http://localhost/wp_dev") {
@@ -56,9 +64,14 @@ function divdev_assets()
     wp_enqueue_style('cloudflare-css', '//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.14.2/styles/monokai-sublime.min.css');
     wp_enqueue_style('featherLight-css', '//cdn.jsdelivr.net/npm/featherlight@1.7.14/release/featherlight.min.css');
     wp_register_style('style-sheet', get_stylesheet_uri(), null, VERSION);
+
     wp_enqueue_style("dashicons");
+    wp_enqueue_style("tns-slider-css", "//cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/tiny-slider.css");
+
     wp_enqueue_script('highlight-js', '//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.14.2/highlight.min.js');
+    wp_enqueue_script('tns-js', '//cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.2/min/tiny-slider.js"', null, VERSION, true);
     wp_enqueue_script('featherLight-js', '//cdn.jsdelivr.net/npm/featherlight@1.7.14/release/featherlight.min.js', ['jquery'], VERSION, true);
+    wp_enqueue_script('main-js',  get_template_directory_uri() . '/assets/js/main.js', null, VERSION, true);
 
     wp_register_script('bootstrap-min-js', get_template_directory_uri() . '/assets/plugins/bootstrap/js/bootstrap.min.js', ['jquery'], VERSION, true);
     wp_register_script('all-min-js', get_template_directory_uri() . '/assets/fontawesome/js/all.min.js');

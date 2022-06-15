@@ -1,5 +1,7 @@
 <?php
 
+use FakerPress\Module\Attachment;
+
 $divdev_layout_class = "col-md-9";
 if (!is_active_sidebar("sidebar-1")) {
 	$divdev_layout_class = "col-md-12";
@@ -65,19 +67,35 @@ if (!is_active_sidebar("sidebar-1")) {
 							</header>
 
 							<div class="blog-post-body">
+								<div class="slider-images">
+									<?php
+									if (class_exists('Attachments')) {
+										$attachments = new Attachments('slider');
+										if ($attachments->exist()) {
+											while ($attachments->get()) { ?>
+												<div>
+													<?php echo $attachments->image('large');  ?>
+
+												</div>
+									<?php
+											}
+										}
+									}
+									?>
+								</div>
 								<figure class="blog-banner">
 									<?php
+									if (!class_exists('Attachments')) {
+										if (has_post_thumbnail()) {
+											$the_thumbnail = get_the_post_thumbnail_url();
 
-									if (has_post_thumbnail()) {
-										$the_thumbnail = get_the_post_thumbnail_url();
+											printf('<a href="%s" data-featherlight="image">', $the_thumbnail);
 
-										printf('<a href="%s" data-featherlight="image">', $the_thumbnail);
+											the_post_thumbnail("large", array("class" => "img-fluid"));
 
-										the_post_thumbnail("large", array("class" => "img-fluid"));
-
-										echo '</a><figcaption class="mt-2 text-center image-caption">Image Credit: <a class="theme-link" href="https://alfurqanitfirm.com" target="_blank">alfurqanitfirm.com (Cock)</a></figcaption>';
+											echo '</a><figcaption class="mt-2 text-center image-caption">Image Credit: <a class="theme-link" href="https://alfurqanitfirm.com" target="_blank">alfurqanitfirm.com (Cock)</a></figcaption>';
+										}
 									}
-
 									?>
 								</figure>
 								<div class="intro">

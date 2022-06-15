@@ -7,12 +7,12 @@
                     if (has_post_thumbnail()) {
                         the_post_thumbnail('thumbnail', array('class' => 'img-fluid'));
                     } else {
-                        echo '<img class="img-fluid post-thumb hello" src="' . get_theme_file_uri("/assets/images/blog/chicken-" . rand(1, 10) . ".jpg") . '" alt="image">';
+                        echo '<img class="img-fluid post-thumb" src="' . get_theme_file_uri("/assets/images/blog/chicken-" . rand(1, 10) . ".jpg") . '" alt="image">';
                     }
                     ?>
                 </a>
             </div>
-            <div class="col">
+            <div class="col text-left">
                 <h3 class="title mb-1">
                     <a class="text-link" href="<?php the_permalink(); ?>">
                         <?php the_title(); ?>
@@ -37,6 +37,7 @@
                     <span class="comment">
                         <a class="text-link" href="#comment-sections">
                             <?php
+
                             if (get_comments_number() >= 2) {
                                 echo get_comments_number() . " comments";
                             } else {
