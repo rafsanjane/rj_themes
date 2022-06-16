@@ -12502,7 +12502,7 @@ a.text-link:hover {
 .btn-primary:hover,
 .btn-primary:active {
     color: #fff;
-    background: #4cc560
+    background: #5ad7b0
 }
 
 .form-control {
@@ -13173,4 +13173,22 @@ footer .col-md-6 {
 footer .justify-content-around .row {
     margin-right: 0px;
     margin-left: 0px;
+}
+
+
+/* recent Post Section */
+
+
+#tns1-mw {
+    height: 200px !important;
+}
+
+
+/* search heighlight */
+
+.search-heighlight {
+    color: #000000;
+    font-weight: bold;
+    font-size: 16px;
+    background-color: #ff0;
 }

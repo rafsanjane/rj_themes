@@ -4,6 +4,7 @@
             container: '.slider-images',
             speed: 300,
             autoplayTimeout: 3000,
+
             item: 1,
             autoplay: true,
             autoHeight: true,
@@ -32,15 +33,16 @@
     $(document).ready(function () {
         var slider = tns({
             container: '.team',
+            fixedWidth: 350,
             speed: 300,
             autoplayTimeout: 3000,
-            item: 2,
+            item: 1,
             autoplay: true,
             autoHeight: true,
             controls: false,
             nav: false,
             autoplayButtonOutput: false,
-            slideBy: "page",
+
             mouseDrag: true,
             swipeAngle: false
 

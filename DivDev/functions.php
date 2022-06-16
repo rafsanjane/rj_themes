@@ -21,6 +21,7 @@ function divdev_bootstrapping()
     load_default_textdomain('divdev');
     add_theme_support('post-thumbnails');
     add_theme_support('title-tag');
+    add_theme_support('html5', array('search-form'));
     $divdev_custom_header_details = array(
         'header-text'        => true,
         'default-text-color' => '#222',
@@ -41,6 +42,11 @@ function divdev_bootstrapping()
     add_theme_support('custom-logo', $divdev_custom_logo_defaults);
 
     add_theme_support("post-formats", array("image", "quote", "video", "audio", "link"));
+
+    add_image_size('divdev-square', 400, 400, true);
+    add_image_size('divdev-portrait', 400, 9999);
+    add_image_size('divdev-landscape', 9999, 400);
+    add_image_size('divdev-landscape-hard-cropped', 600, 400);
 }
 add_action('after_setup_theme', 'divdev_bootstrapping');
 
@@ -220,6 +226,35 @@ function add_menu_css_class($classes, $item, $args)
 }
 add_filter('nav_menu_css_class', 'add_menu_css_class', 1, 3);
 
+
+function divdev_highlight_search_words($text)
+{
+    if (is_search()) {
+        $pattern = '/(' . join('|', explode(' ', trim(get_search_query()))) . ')/i';
+        $text = preg_replace($pattern, '<span class="search-heighlight">\0</span>', $text);
+    }
+    return $text;
+}
+
+add_filter('the_content', 'divdev_highlight_search_words');
+add_filter('the_excerpt', 'divdev_highlight_search_words');
+add_filter('the_title', 'divdev_highlight_search_words');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // function add_css_pagination()
 // {
 //
@@ -252,3 +287,10 @@ add_filter('nav_menu_css_class', 'add_menu_css_class', 1, 3);
 // add_action('wp_head', 'add_css_pagination');
 
 // require('inc/wp-pagination.php');
+
+
+/**
+ * Register the Product post type with a Dashicon.
+ *
+ * @see register_post_type()
+ */

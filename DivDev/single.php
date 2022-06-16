@@ -100,6 +100,12 @@ if (!is_active_sidebar("sidebar-1")) {
 								</figure>
 								<div class="intro">
 									<?php
+									the_post_thumbnail('divdev-square');
+									echo "<br>";
+									the_post_thumbnail('divdev-portrait');
+									the_post_thumbnail('divdev-landscape');
+									the_post_thumbnail('divdev-landscape-hard-cropped');
+
 									the_content();
 
 									wp_link_pages();
