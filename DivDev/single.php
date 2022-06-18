@@ -132,8 +132,13 @@ if (!is_active_sidebar("sidebar-1")) {
 							<div class="row">
 								<div class="col-md-2 authorimage">
 									<?php
-									echo  '<img alt="" src="http://localhost/wp_dev/wp-content/themes/DivDev/assets/images/profile.png" srcset="http://0.gravatar.com/avatar/38503640a6b7b9e9a578279f9941b328?s=192&amp;d=mm&amp;r=g 2x" class="avatar2 avatar-96 photo" height="96" width="96" loading="lazy">';
-									// echo  get_avatar(get_the_author_meta("id"));
+									if (get_avatar(get_the_author_meta("ID"))) {
+										echo  get_avatar(get_the_author_meta("ID"));
+									} else {
+										echo  '<img alt="" src="http://localhost/wp_dev/wp-content/themes/DivDev/assets/images/profile.png" srcset="http://0.gravatar.com/avatar/38503640a6b7b9e9a578279f9941b328?s=192&amp;d=mm&amp;r=g 2x" class="avatar2 avatar-96 photo" height="96" width="96" loading="lazy">';
+									}
+
+									// 
 									?>
 
 								</div>
@@ -164,22 +169,20 @@ if (!is_active_sidebar("sidebar-1")) {
 
 
 				<!-- // Comment Section -->
+				<?php if (!post_password_required()) : ?>
+					<div id="comment-sections" class="container">
+						<div class="row comment-section">
+							<div class="col-md-12 px-5 py-4 ">
 
-				<div id="comment-sections" class="container">
-					<div class="row comment-section">
-
-						<?php if (comments_open()) : ?>
-
-							<div class="col-md-12 offset-md-1 ">
-
-								<?php comments_template() ?>
+								<?php comments_template(); ?>
 
 							</div>
 
-						<?php endif; ?>
 
+
+						</div>
 					</div>
-				</div>
+				<?php endif; ?>
 			</div>
 			<?php
 			if (is_active_sidebar("sidebar-1")) :

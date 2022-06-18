@@ -72,10 +72,10 @@ function divdev_assets()
     wp_register_style('style-sheet', get_stylesheet_uri(), null, VERSION);
 
     wp_enqueue_style("dashicons");
-    wp_enqueue_style("tns-slider-css", "//cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/tiny-slider.css");
+    wp_enqueue_style("tns-slider-css", get_template_directory_uri() . "/assets/plugins/tiny-slider/tiny-slider.css");
 
     wp_enqueue_script('highlight-js', '//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.14.2/highlight.min.js');
-    wp_enqueue_script('tns-js', '//cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.2/min/tiny-slider.js"', null, VERSION, true);
+    wp_enqueue_script('tns-js', get_template_directory_uri() . '/assets/plugins/tiny-slider/min/tiny-slider.js"', null, VERSION, true);
     wp_enqueue_script('featherLight-js', '//cdn.jsdelivr.net/npm/featherlight@1.7.14/release/featherlight.min.js', ['jquery'], VERSION, true);
     wp_enqueue_script('main-js',  get_template_directory_uri() . '/assets/js/main.js', null, VERSION, true);
 
@@ -230,7 +230,10 @@ add_filter('nav_menu_css_class', 'add_menu_css_class', 1, 3);
 function divdev_highlight_search_words($text)
 {
     if (is_search()) {
-        $pattern = '/(' . join('|', explode(' ', trim(get_search_query()))) . ')/i';
+
+        $query_trim = trim(get_search_query(), " \n\r\t\v\x00");
+
+        $pattern = '/(' . join('|', explode(' ', $query_trim)) . ')/i';
         $text = preg_replace($pattern, '<span class="search-heighlight">\0</span>', $text);
     }
     return $text;
