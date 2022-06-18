@@ -13229,3 +13229,7 @@ footer .justify-content-around .row {
     padding-bottom: 20px;
     margin-left: -104px;
 }
+
+.comments-pagination {
+    padding: 16px;
+}

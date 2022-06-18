@@ -172,10 +172,7 @@ if (!is_active_sidebar("sidebar-1")) {
 				<?php if (!post_password_required()) : ?>
 					<div id="comment-sections" class="container">
 						<div class="row comment-section">
-
-
-
-							<div class="col-md-12 offset-md-1  ">
+							<div class="col-md-12 px-5 py-4 ">
 
 								<?php comments_template(); ?>
 
