@@ -1,7 +1,7 @@
 <?php
 
 /*
- * Template Name: Custome Query
+ * Template Name: WordPress Query
  */
 ?>
 
@@ -44,10 +44,11 @@
             $post_ids = array(390,  392, 396, 345, 346, 121, 122, 123, 124, 125);
             $total = 9;
             $posts_per_page = 3;
-            $_P =  get_posts(array(
+            $_P =  new WP_Query(array(
                 'posts_per_page' => $posts_per_page,
                 // 'post__in' => $post_ids,
                 'author__in' => array(1, 4),
+                'post__in' => $post_ids,
                 'numberposts' => $total,
                 'orderby' => 'post__in',
                 'paged' => $paged
@@ -140,8 +141,8 @@
                             <?php
                             echo paginate_links(array(
                                 'total' => $_p->max_num_pages,
-                                'current' => $paged,
-                                'prev_next' => false,
+                                'current' => $paged
+
 
                             ));
                             ?>
