@@ -30,9 +30,9 @@
  * require_once get_stylesheet_directory() . '/path/to/class-tgm-plugin-activation.php';
  *
  * Plugin:
- * require_once dirname( __FILE__ ) . '/lib/class-tgm-plugin-activation.php';
+ * require_once dirname( __FILE__ ) . '/path/to/class-tgm-plugin-activation.php';
  */
-require_once get_theme_file_path() . '/class-tgm-plugin-activation.php';
+require_once get_theme_file_path('/lib/class-tgm-plugin-activation.php');
 
 add_action('tgmpa_register', 'my_theme_register_required_plugins');
 
