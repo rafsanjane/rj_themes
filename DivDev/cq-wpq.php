@@ -41,27 +41,16 @@
         <div class="container single-col-max-width">
             <?php
             $paged = get_query_var("paged") ? get_query_var("paged") : 1;
-            $post_ids = array(390,  392, 396, 345, 346, 121, 122, 123, 124, 125);
-            $total = 9;
+            // $post_ids = array(390,  392, 396, 345, 346, 121, 122, 123, 124, 125);
             $posts_per_page = 3;
             $_P =  new WP_Query(array(
+                'category_name' => 'Uncategorized',
                 'posts_per_page' => $posts_per_page,
-                // 'post__in' => $post_ids,
-                'author__in' => array(1, 4),
-                'post__in' => $post_ids,
-                'numberposts' => $total,
-                'orderby' => 'post__in',
                 'paged' => $paged
-
             ));
-            foreach ($_P as $post) {
-                setup_postdata($post);
-
+            while ($_P->have_posts()) {
+                $_P->the_post();
             ?>
-
-
-
-
                 <div <?php post_class(); ?>>
                     <div class="item mb-5">
                         <div class="row g-3 g-xl-0">
@@ -71,7 +60,7 @@
                                     if (has_post_thumbnail()) {
                                         the_post_thumbnail('thumbnail', array('class' => 'img-fluid'));
                                     } else {
-                                        echo '<img class="img-fluid post-thumb" src="' . get_theme_file_uri("/assets/images/blog/Cock-" . rand(1, 10) . ".jpg") . '" alt="image">';
+                                        echo '<img class="img-fluid post-thumb" src="' . get_theme_file_uri("/assets/images/blog/chicken-" . rand(1, 10) . ".jpg") . '" alt="image">';
                                     }
                                     ?>
                                 </a>
@@ -129,7 +118,7 @@
 
             <?php
             }
-            wp_reset_postdata();
+            wp_reset_query();
 
             ?>
 
@@ -137,11 +126,12 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12 blog-nav pagination-link">
-                        <div class="nav-item nav-link rounded">
+                        <div class="nav-item nav-link rounded pagination">
                             <?php
                             echo paginate_links(array(
-                                'total' => $_p->max_num_pages,
-                                'current' => $paged
+                                'total' => $_P->max_num_pages,
+                                'current' => $paged,
+                                'prev_next' => true
 
 
                             ));

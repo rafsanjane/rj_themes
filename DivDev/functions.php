@@ -1,5 +1,6 @@
 <?php
 
+require_once get_theme_file_path('/inc/tgm.php');
 
 if (class_exists('Attachments')) {
     require_once "lib/attachments.php";
@@ -229,7 +230,7 @@ add_filter('nav_menu_css_class', 'add_menu_css_class', 1, 3);
 
 function divdev_highlight_search_words($text)
 {
-    if (is_search() && $wpq->is_main_query()) {
+    if (is_search()) {
 
         $query_trim = trim(get_search_query(), " \n\r\t\v\x00");
 
@@ -242,16 +243,6 @@ function divdev_highlight_search_words($text)
 add_filter('the_content', 'divdev_highlight_search_words');
 add_filter('the_excerpt', 'divdev_highlight_search_words');
 add_filter('the_title', 'divdev_highlight_search_words');
-
-
-function divdev_modify_main_query($wpq)
-{
-    if (is_home()) {
-        $wpq->set("post__not_in", array(350));
-    }
-}
-
-add_action("pre_get_posts", "divdev_modify_main_query");
 
 
 

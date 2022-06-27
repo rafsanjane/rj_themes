@@ -1,6 +1,6 @@
 <?php
 
-/*
+/**
  * Template Name: Custome Query
  */
 ?>
@@ -70,7 +70,7 @@
                                     if (has_post_thumbnail()) {
                                         the_post_thumbnail('thumbnail', array('class' => 'img-fluid'));
                                     } else {
-                                        echo '<img class="img-fluid post-thumb" src="' . get_theme_file_uri("/assets/images/blog/Cock-" . rand(1, 10) . ".jpg") . '" alt="image">';
+                                        echo '<img class="img-fluid post-thumb" src="' . get_theme_file_uri("/assets/images/blog/chicken-" . rand(1, 10) . ".jpg") . '" alt="image">';
                                     }
                                     ?>
                                 </a>
@@ -139,10 +139,7 @@
                         <div class="nav-item nav-link rounded">
                             <?php
                             echo paginate_links(array(
-                                'total' => $_p->max_num_pages,
-                                'current' => $paged,
-                                'prev_next' => false,
-
+                                'total' => ceil($total / $posts_per_page)
                             ));
                             ?>
                         </div>
