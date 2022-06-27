@@ -33,7 +33,7 @@
 	</section>
 	<?php if (is_front_page()) {  ?>
 
-		<section class="cta-section headerimage theme-bg-light py-5">
+		<section class="cta-section headerimage theme-bg-light pb-5">
 			<div class="container recent-post text-center ">
 				<h2 class="heading"><?php echo "Recent Posts"; ?></h2>
 				<div class=" pt-3 mx-auto card">
