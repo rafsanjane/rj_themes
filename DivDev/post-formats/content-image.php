@@ -44,6 +44,7 @@
                     the_excerpt();
 
                     ?>
+
                 </div>
                 <!-- <a class="text-link" href="blog-post.html">Read more &rarr;</a> -->
             </div>

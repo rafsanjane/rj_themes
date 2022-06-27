@@ -100,14 +100,26 @@ if (!is_active_sidebar("sidebar-1")) {
 								</figure>
 								<div class="intro">
 									<?php
-									the_post_thumbnail('divdev-square');
-									echo "<br>";
-									the_post_thumbnail('divdev-portrait');
-									the_post_thumbnail('divdev-landscape');
-									the_post_thumbnail('divdev-landscape-hard-cropped');
-
 									the_content();
+									?>
+									<br>
+									<?php
+									if (get_post_format() == "image") {
+									?>
+										<div class="image-details bordered p-3">
+											<strong>Camrea Model: </strong><?php the_field("camera_model"); ?><br />
+											<strong>Location:</strong> <?php the_field("location"); ?><br />
+											<strong>Capture Date: </strong><?php the_field("date"); ?><br />
+											<?php if (get_field("do_need_license")) : ?>
+												<strong>license details: </strong>
+												<?php apply_filters("the_content", get_field("license_details")); ?>
+											<?php endif; ?>
+										</div>
+									<?php
+									}
+									?>
 
+									<?php
 									wp_link_pages();
 									?>
 								</div>
