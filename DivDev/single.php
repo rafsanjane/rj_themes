@@ -104,7 +104,7 @@ if (!is_active_sidebar("sidebar-1")) {
 									?>
 									<br>
 									<?php
-									if (get_post_format() == "image") {
+									if (get_post_format() == "image" && function_exists("the_field")) {
 									?>
 										<div class="image-details bordered p-3">
 											<strong>Camrea Model: </strong><?php the_field("camera_model"); ?><br />
@@ -112,8 +112,29 @@ if (!is_active_sidebar("sidebar-1")) {
 											<strong>Capture Date: </strong><?php the_field("date"); ?><br />
 											<?php if (get_field("do_need_license")) : ?>
 												<strong>license details: </strong>
-												<?php apply_filters("the_content", get_field("license_details")); ?>
+												<?php echo apply_filters("the_content", get_field("license_details")); ?><br />
 											<?php endif; ?>
+											<?php
+											$divdev_image_id = get_field("random_image");
+											echo "<img src='" . esc_url(wp_get_attachment_image_src($divdev_image_id, "thumbnail")[0]) . "'/><br/>";
+											?>
+											<p class="p-2">
+												<?php
+												$file = get_field("attachment");
+												if ($file) {
+													$file_url = wp_get_attachment_url($file);
+													$file_thumb = get_field("thumbnail", $file);
+													if ($file_thumb) {
+														$file_thumb_details = wp_get_attachment_image_src($file_thumb);
+														echo "<a target='_blank' href='{$file_url}'><img src='" . esc_url($file_thumb_details[0]) . "'/></a><br />";
+														print_r(esc_url($file_thumb_details));
+														die();
+													} else {
+														echo "<a target='_blank' href='{$file_url}'>{$file_url}</a><br />";
+													}
+												}
+												?>
+											</p>
 										</div>
 									<?php
 									}
