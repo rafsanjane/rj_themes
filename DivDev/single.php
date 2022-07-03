@@ -127,8 +127,6 @@ if (!is_active_sidebar("sidebar-1")) {
 													if ($file_thumb) {
 														$file_thumb_details = wp_get_attachment_image_src($file_thumb);
 														echo "<a target='_blank' href='{$file_url}'><img src='" . esc_url($file_thumb_details[0]) . "'/></a><br />";
-														print_r(esc_url($file_thumb_details));
-														die();
 													} else {
 														echo "<a target='_blank' href='{$file_url}'>{$file_url}</a><br />";
 													}
@@ -139,20 +137,58 @@ if (!is_active_sidebar("sidebar-1")) {
 									<?php
 									}
 									?>
-
-									<?php
-									wp_link_pages();
-									?>
 								</div>
+
 							</div>
 						<?php } ?>
+						<?php if (function_exists("the_field") && get_field("related_posts")) : ?>
+							<div class="related-post">
+								<div class=" row col-md-12">
+									<h1><?php _e("Related Posts", "divdev");  ?></h1>
+									<?php
+									$relatedd_posts = get_field("related_posts");
+									?>
+									<?php
 
+									$divdev_rp = new WP_Query(array(
+										'post__in' => $relatedd_posts,
+										'orderby' => 'post__in',
+									));
+									while ($divdev_rp->have_posts()) {
+										$divdev_rp->the_post();
+
+									?>
+										<div class="col-md-2 p-2">
+											<a class="text-link" href="<?php the_permalink(); ?>">
+												<?php
+												if (has_post_thumbnail()) {
+													the_post_thumbnail('thumbnail', array('class' => 'img-fluid'));
+												} else {
+													echo '<img class="img-fluid post-thumb hello" src="' . get_theme_file_uri("/assets/images/blog/chicken-" . rand(1, 10) . ".jpg") . '" alt="image">';
+												}
+												?>
+											</a>
+										</div>
+										<div class="col-md-4 p-2">
+											<h4 class="mb-1">
+												<a class="text-link" href="<?php the_permalink(); ?>">
+													<?php the_title(); ?>
+												</a>
+											</h4>
+										</div>
+									<?php
+
+									}
+
+									wp_reset_query();  ?>
+
+								</div>
+							</div>
+						<?php endif; ?>
 						<nav class="blog-nav nav nav-justified my-5 col-md-12">
 
 							<span class=" nav-next-post rounded next-post post-prev col-md-6"><?php previous_post_link('%link'); ?></span>
 							<span class=" nav-next-post rounded next-post col-md-6"><?php next_post_link('%link'); ?></span>
-
-
 							<!-- class="nav-link-next nav-item nav-link rounded"' -->
 						</nav>
 
@@ -188,13 +224,23 @@ if (!is_active_sidebar("sidebar-1")) {
 										?>
 
 									</p>
+									<p>
+										<?php
+										if (function_exists("the_field")) {
+										?>
 
+											<a href="<?php the_field("linkedin", "user_" . get_the_author_meta("ID"));  ?>" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in fa-fw"></i></a>
+											<a href="<?php the_field("facebook", "user_" . get_the_author_meta("ID"));  ?>" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook fa-fw"></i></a>
+											<a href="<?php the_field("twitter", "user_" . get_the_author_meta("ID"));  ?>" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter fa-fw"></i></a>
+
+										<?php
+										}
+										?>
+									</p>
 								</div>
 							</div>
 						</div>
-
-
-
+					</div>
 				</article>
 
 
