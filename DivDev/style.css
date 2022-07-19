@@ -13187,6 +13187,11 @@ footer .justify-content-around .row {
     height: 200px !important;
 }
 
+.related-post img {
+    height: 120px;
+    width: 120px;
+}
+
 
 /* search heighlight */
 

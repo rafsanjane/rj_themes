@@ -3,6 +3,8 @@
 require_once get_theme_file_path('/inc/tgm.php');
 require_once get_theme_file_path('/inc/cmb2-mb.php');
 
+require_once get_theme_file_path('/inc/acf-md.php');
+
 if (class_exists('Attachments')) {
     require_once "lib/attachments.php";
 }
@@ -258,10 +260,13 @@ function divdev_admin_assetes($hook)
 }
 
 
+<<<<<<< HEAD
 add_action("admin_enqueue_scripts", "divdev_admin_assetes");
+=======
+//Advanced Custom Fields hide from menu
+>>>>>>> 6a034df26ac6b091bb5e45fd2d2043cdd7f0cc57
 
-
-
+//add_filter('acf/settings/show_admin', '__return_false');
 
 
 
