@@ -126,11 +126,9 @@ if (!is_active_sidebar("sidebar-1")) {
 													$file_thumb = get_field("thumbnail", $file);
 													if ($file_thumb) {
 														$file_thumb_details = wp_get_attachment_image_src($file_thumb);
-														echo "<a target='_blank' href='{$file_url}'><img src='" . esc_url($file_thumb_details[0]) . "'/></a><br />";
-														print_r(esc_url($file_thumb_details));
-														die();
+														echo "Download:  <a target='_blank' href='{$file_url}'><img src='" . esc_url($file_thumb_details[0]) . "'/></a><br />";
 													} else {
-														echo "<a target='_blank' href='{$file_url}'>{$file_url}</a><br />";
+														echo "<a target='_blank' href='{$file_url}'>Download {$file_url}</a><br />";
 													}
 												}
 												?>
@@ -138,6 +136,42 @@ if (!is_active_sidebar("sidebar-1")) {
 										</div>
 									<?php
 									}
+									?>
+
+									<br>
+									<?php
+									if (get_post_format() == "image" && class_exists("CMB2")) :
+
+										$divdev_model = get_post_meta(get_the_ID(), "_divdev_camera_model", true);
+										$divdev_location = get_post_meta(get_the_ID(), "_divdev_location", true);
+										$divdev_date = get_post_meta(get_the_ID(), "_divdev_date", true);
+										$divdev_licensed = get_post_meta(get_the_ID(), "_divdev_licensed", true);
+										$divdev_license_information = get_post_meta(get_the_ID(), "_divdev_license_information", true);
+
+									?>
+										<div class="image-details bordered p-3">
+											<strong>Camrea Model: </strong><?php echo esc_html($divdev_model); ?><br />
+											<strong>Location:</strong> <?php echo esc_html($divdev_location); ?><br />
+											<strong>Capture Date: </strong><?php echo esc_html($divdev_date) ?><br />
+											<?php if ($divdev_licensed) : ?>
+												<strong>license details: </strong>
+												<?php echo apply_filters("the_content", $divdev_license_information); ?><br />
+											<?php endif; ?>
+											<p class="p-2">
+												<?php
+												$divdev_image_id = get_post_meta(get_the_ID(), "_divdev_image_id", true);
+												echo "<img src='" . esc_url(wp_get_attachment_image_src($divdev_image_id, "thumbnail")[0]) . "'/><br/>";
+												?>
+											</p>
+											<p class="p-2">
+												<?php
+												$divdev_file = get_post_meta(get_the_ID(), "_divdev_resume", true);
+												echo "<a href=" . esc_url($divdev_file) . ">Download</a>";
+												?>
+											</p>
+										</div>
+									<?php
+									endif;
 									?>
 
 									<?php

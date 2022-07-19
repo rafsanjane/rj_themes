@@ -1,6 +1,7 @@
 <?php
 
 require_once get_theme_file_path('/inc/tgm.php');
+require_once get_theme_file_path('/inc/cmb2-mb.php');
 
 if (class_exists('Attachments')) {
     require_once "lib/attachments.php";
@@ -244,8 +245,20 @@ add_filter('the_content', 'divdev_highlight_search_words');
 add_filter('the_excerpt', 'divdev_highlight_search_words');
 add_filter('the_title', 'divdev_highlight_search_words');
 
+function divdev_admin_assetes($hook)
+{
+    if (isset($_REQUEST['post']) || isset($_REQUEST['post_ID'])) {
+        $divdev_post_id = empty($_REQUEST['post_ID']) ? $_REQUEST['post'] : $_REQUEST['post_ID'];
+    }
+    if ("post.php" == $hook) {
+        $divdev_post_format = get_post_format($divdev_post_id);
+        wp_enqueue_script("admin-js", get_theme_file_uri("/assets/js/admin.js"), ["jquery"], VERSION, true);
+        wp_localize_script("admin-js", "divdev_pf", ["format" => $divdev_post_format]);
+    }
+}
 
 
+add_action("admin_enqueue_scripts", "divdev_admin_assetes");
 
 
 
