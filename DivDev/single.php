@@ -126,11 +126,8 @@ if (!is_active_sidebar("sidebar-1")) {
 													$file_thumb = get_field("thumbnail", $file);
 													if ($file_thumb) {
 														$file_thumb_details = wp_get_attachment_image_src($file_thumb);
-<<<<<<< HEAD
 														echo "Download:  <a target='_blank' href='{$file_url}'><img src='" . esc_url($file_thumb_details[0]) . "'/></a><br />";
-=======
 														echo "<a target='_blank' href='{$file_url}'><img src='" . esc_url($file_thumb_details[0]) . "'/></a><br />";
->>>>>>> 6a034df26ac6b091bb5e45fd2d2043cdd7f0cc57
 													} else {
 														echo "<a target='_blank' href='{$file_url}'>Download {$file_url}</a><br />";
 													}
@@ -141,7 +138,6 @@ if (!is_active_sidebar("sidebar-1")) {
 									<?php
 									}
 									?>
-<<<<<<< HEAD
 
 									<br>
 									<?php
@@ -182,8 +178,6 @@ if (!is_active_sidebar("sidebar-1")) {
 									<?php
 									wp_link_pages();
 									?>
-=======
->>>>>>> 6a034df26ac6b091bb5e45fd2d2043cdd7f0cc57
 								</div>
 
 							</div>

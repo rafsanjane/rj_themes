@@ -260,11 +260,8 @@ function divdev_admin_assetes($hook)
 }
 
 
-<<<<<<< HEAD
 add_action("admin_enqueue_scripts", "divdev_admin_assetes");
-=======
 //Advanced Custom Fields hide from menu
->>>>>>> 6a034df26ac6b091bb5e45fd2d2043cdd7f0cc57
 
 //add_filter('acf/settings/show_admin', '__return_false');
 
