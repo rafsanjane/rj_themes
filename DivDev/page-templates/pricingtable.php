@@ -72,7 +72,6 @@
                 <?php }  ?>
             </div>
             <!--//pricing-table-->
-
         </div>
         <!--//container-->
     </section>
