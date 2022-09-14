@@ -23,6 +23,7 @@ function virtualwriter_theme_setup()
     add_editor_style('/assets/css/custom-editor-style.css');
 
     register_nav_menu("topmenu", __('Top Menu', 'virtualwriter'));
+    add_image_size("virtualwriter-home-square", 400, 400, true);
 }
 
 
@@ -63,3 +64,19 @@ function virtualwriter_assets()
 
 
 add_action("wp_enqueue_scripts", "virtualwriter_assets");
+
+
+function the_virtualwriter_pagination()
+{
+    global $wp_query;
+    $links =  paginate_links(array(
+        'current' => max(1, get_query_var('paged')),
+        'total' => $wp_query->max_num_pages,
+        'type' => 'list'
+    ));
+    $links = str_replace('page-numbers', 'pgn__num', $links);
+    $links = str_replace("<ul class='pgn__num'>", '<ul>', $links);
+    $links = str_replace('next pgn__num', 'pgn__next', $links);
+    $links = str_replace('prev pgn__num', 'pgn__prev', $links);
+    echo $links;
+}
