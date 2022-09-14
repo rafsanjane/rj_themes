@@ -14,13 +14,17 @@
 
     <?php
 
-    wp_nav_menu(array(
+    $virtualwriter_menu =  wp_nav_menu(array(
 
         'theme_location' => "topmenu",
         'menu_id' => "topmenu",
         'menu_class' => "header__nav",
-
+        'echo' => false
     ));
+
+    $virtualwriter_menu = str_replace('menu-item-has-children', 'has-children', $virtualwriter_menu);
+    echo $virtualwriter_menu;
+
 
     ?>
 
