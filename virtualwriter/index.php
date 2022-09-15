@@ -1,11 +1,6 @@
 <?php get_header();  ?>
 
 
-
-<?php get_template_part("template-parts/blog-home/featured");  ?>
-
-
-
 <!-- s-content
     ================================================== -->
 <section class="s-content">

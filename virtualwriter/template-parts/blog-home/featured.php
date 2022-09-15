@@ -101,6 +101,3 @@ if ($virtualwriter_fp->post_count > 1) :
 <?php
 endif;
 ?>
-
-
-</section> <!-- end s-pageheader -->
